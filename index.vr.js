@@ -4,7 +4,8 @@ import {
   View
 } from 'react-vr';
 import Canvas from './components/Canvas.js'
-// import UI from './components/UI.js'
+import UI from './components/UI.js'
+// https://facebook.github.io/react-360/
 
 
 const Config = [
@@ -45,10 +46,12 @@ class vr_gallery extends Component {
     return (
       <View>
         <Canvas src={this.state.src} />
+        <UI buttonConfig={Config} onClick={ (key) => this.setState({ src: Config[key].imageSrc  }) }/>
       </View>
     );
   }
 };
 
+export default vr_gallery;
 AppRegistry.registerComponent('vr_gallery', () => vr_gallery);
-export default vr_gallery
+
